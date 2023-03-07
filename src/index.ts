@@ -92,7 +92,7 @@ WebServer.get(ENDPOINTS.AUTH, async (request, reply) => {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
         });
-        console.log("tokrespo " + oAuthData);
+        console.log("tokrespo " + tokenResponseData);
         oAuthData = await tokenResponseData.json();
     } catch (error) {
         reply.type('application/json').code(401);
@@ -104,7 +104,7 @@ WebServer.get(ENDPOINTS.AUTH, async (request, reply) => {
         return { status: false, message: 'Authentication credentials were missing or incorrect' };
     }
 
-    console.log("oauthdata " + oAuthData);
+    console.log("oauthdata " + JSON.stringify(oAuthData));
     console.log(`Authorization : ${oAuthData.token_type} ${oAuthData.access_token}`);
 
     const userResult = await fetch('https://discord.com/api/users/@me', {
