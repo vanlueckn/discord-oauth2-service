@@ -92,6 +92,7 @@ WebServer.get(ENDPOINTS.AUTH, async (request, reply) => {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
         });
+        console.log("redir " + DISCORD_REDIRECT);
         console.log("tokrespo " + tokenResponseData);
         oAuthData = await tokenResponseData.json();
     } catch (error) {
