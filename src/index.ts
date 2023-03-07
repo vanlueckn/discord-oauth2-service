@@ -104,6 +104,8 @@ WebServer.get(ENDPOINTS.AUTH, async (request, reply) => {
         return { status: false, message: 'Authentication credentials were missing or incorrect' };
     }
 
+    console.log(`Authorization : ${oAuthData.token_type} ${oAuthData.access_token}`);
+
     const userResult = await fetch('https://discord.com/api/users/@me', {
         headers: {
             authorization: `${oAuthData.token_type} ${oAuthData.access_token}`,
