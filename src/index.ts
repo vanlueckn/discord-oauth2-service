@@ -111,6 +111,8 @@ WebServer.get(ENDPOINTS.AUTH, async (request, reply) => {
     });
 
     if (!userResult.ok) {
+        console.log(userResult);
+        console.log("test");
         reply.type('application/json').code(401);
         return { status: false, message: 'Authorization token must have expired.' };
     }
