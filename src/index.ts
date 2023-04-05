@@ -122,8 +122,8 @@ WebServer.get(ENDPOINTS.AUTH, async (request, reply) => {
 
     if (RESPONSE_STRATEGY === 'json') {
         users[state] = user;
-        reply.type('application/json').code(200);
-        return { status: true, message: 'Authorization Complete!' };
+        reply.code(200);
+        return 'Login erfolgreich. Dieses Fenster kann geschlossen werden.';
     }
 
     // When the JWT token is returned.
